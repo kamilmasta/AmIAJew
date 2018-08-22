@@ -12,9 +12,7 @@ import pl.bkacala.amiajew.algorithm.PeselValidator
 
 class PeselNationalityAlgorithmTest {
 
-    val tag = "PeselNationalityAlgorithmTest"
     val peselsCreator = PeselsCreator()
-
 
     @Test
     fun allCases() {
@@ -30,16 +28,16 @@ class PeselNationalityAlgorithmTest {
 
         //execute
         for (pair in testCases) {
-            if(testedAlgorithm.checkNationality(pair.pesel) == pair.nationality) correctlyPredictedNationalities++
+            if (testedAlgorithm.checkNationality(pair.pesel) == pair.nationality) correctlyPredictedNationalities++
         }
 
         //verify
         System.out.println("Correctly predicted cases: $correctlyPredictedNationalities for total number $allCasesAmount of all cases.")
-        System.out.println("Effectivness:" + correctlyPredictedNationalities*100/allCasesAmount)
+        System.out.println("Effectivness:" + correctlyPredictedNationalities * 100 / allCasesAmount + "%")
         Assert.assertEquals(correctlyPredictedNationalities, allCasesAmount)
     }
 
-    private fun getMockedPeselValidator() : PeselValidator {
+    private fun getMockedPeselValidator(): PeselValidator {
         val peselValidator = mock(PeselValidator::class.java)
         `when`(peselValidator.validate(ArgumentMatchers.anyString())).thenReturn(true)
         return peselValidator

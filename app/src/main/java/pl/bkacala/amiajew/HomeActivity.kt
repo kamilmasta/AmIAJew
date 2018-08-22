@@ -1,19 +1,18 @@
 package pl.bkacala.amiajew
 
 import android.databinding.DataBindingUtil
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.View
 import pl.bkacala.amiajew.algorithm.*
 import pl.bkacala.amiajew.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
 
-    private var algorithm : PeselNationalityAlgorithm
-    var validator : PeselValidator = PeselValidatorImpl()
-    lateinit var binding : ActivityHomeBinding
+    private var algorithm: PeselNationalityAlgorithm
+    var validator: PeselValidator = PeselValidatorImpl()
+    lateinit var binding: ActivityHomeBinding
     private val viewModel = HomeActivityViewModel()
 
     init {
@@ -22,7 +21,7 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding =  DataBindingUtil.setContentView(this, R.layout.activity_home)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
         binding.viewModel = viewModel
 
         setInputListener()
@@ -31,7 +30,7 @@ class HomeActivity : AppCompatActivity() {
 
     private fun setCheckListener() {
         binding.check.setOnClickListener {
-            when(algorithm.checkNationality(binding.input.text.toString())) {
+            when (algorithm.checkNationality(binding.input.text.toString())) {
                 Nationality.POLISH -> viewModel.image = R.drawable.img_polan
                 Nationality.JEWISH -> viewModel.image = R.drawable.img_jew
                 Nationality.UNKNOWN -> viewModel.image = 0
@@ -41,7 +40,7 @@ class HomeActivity : AppCompatActivity() {
 
     private fun setInputListener() {
 
-        binding.input.addTextChangedListener(object: TextWatcher{
+        binding.input.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 updateViewModel(s?.toString() ?: "")
             }

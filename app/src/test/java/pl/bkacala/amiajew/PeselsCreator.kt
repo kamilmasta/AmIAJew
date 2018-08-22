@@ -4,7 +4,7 @@ import pl.bkacala.amiajew.algorithm.Nationality
 
 class PeselsCreator {
 
-    fun createPeselsForAllCases() : List<PeselNationalityPair> {
+    fun createPeselsForAllCases(): List<PeselNationalityPair> {
         val list = arrayListOf<PeselNationalityPair>()
 
         //unia pracy
