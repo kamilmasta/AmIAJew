@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">AmIAJew</string>
+
+    <!-- HOME -->
+    <string name="home_input_hint">Podaj PESEL by sprawdzić narodowość</string>
+    <string name="home_input_check">Sprawdź</string>
+    <string name="home_input_incorrect_pesel">Niepoprawny numer PESEL</string>
+    <string name="home_image_of_polan_or_a_jew">image of polan or a jew</string>
+
+</resources>
